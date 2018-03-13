@@ -1,0 +1,53 @@
+version: '2'
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - db-tier
+
+  flowable:
+    image: amarti96/flowable
+    container_name: flowit
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    links:
+     - mysql
+    networks:
+      - db-tier
+    environment:
+      - datasource_driver=com.mysql.jdbc.Driver
+      - datasource_url=jdbc:mysql://mysql:3306/flowable
+      - datasource_username=root
+      - datasource_password=root
+      - spring_profile=local
+      - admin_user=admin
+      - admin_password=test
+      - datasource.min-pool-size=1
+      - datasource.max-pool-size=4
+      - datasource.acquire-increment=1
+      - create_demo_users=true
+      - create_demo_definitions=true
+      - create_demo_models=true
+      - idm_app_url=http://localhost:8080/flowable-idm
+      - deployment_api_url=http://localhost:8080/flowable-rest/service
+
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  db-tier:
+    driver: bridge
