@@ -31,7 +31,6 @@ services:
       - datasource_url=jdbc:mysql://mysql:3306/flowable
       - datasource_username=root
       - datasource_password=root
-      - spring_profile=local
       - admin_user=admin
       - admin_password=test
       - datasource.min-pool-size=1
