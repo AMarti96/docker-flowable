@@ -4,6 +4,10 @@ The following text will explain how to perform a dockerized flowable with statef
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/AMarti96/docker-flowable/issues)
 
+![Docker Pulls](https://img.shields.io/docker/pulls/amarti96/flowable.svg)
+![Docker Automated](https://img.shields.io/docker/automated/amarti96/flowable.svg)
+![Docker Build](https://img.shields.io/docker/build/amarti96/flowable.svg)
+
 **Table of contents:**<br>
 
 **[Deployment](#deployment)**<br>
