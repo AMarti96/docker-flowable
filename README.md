@@ -2,6 +2,7 @@
 
 The following text will explain how to perform a dockerized flowable with statefull database. This docker-compose is made of a tomcat+mysql and the tomcat will have the different .war used such as the flowable-rest war.
 
+[![Build Status](https://travis-ci.com/AMarti96/docker-flowable.svg?branch=master)](https://travis-ci.com/AMarti96/docker-flowable)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/AMarti96/docker-flowable/issues)
 ![Docker Pulls](https://img.shields.io/docker/pulls/amarti96/flowable.svg)
 
