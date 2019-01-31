@@ -1,13 +1,13 @@
 FROM tomcat
 MAINTAINER adria.marti@aaaida.com
 
-ADD /lib /usr/local/tomcat/webapps
+ADD ./Dockerfile/lib /usr/local/tomcat/webapps
 
-ADD /driver /usr/local/tomcat/lib
+ADD ./Dockerfile/driver /usr/local/tomcat/lib
 
 RUN mkdir /docker-entrypoint-initdb.d
 
-COPY docker-entrypoint.sh /usr/local/
+COPY ./Dockerfile/docker-entrypoint.sh /usr/local/
 
 RUN chmod +x /usr/local/docker-entrypoint.sh
 
