@@ -1,0 +1,12 @@
+language: ruby
+
+services:
+  - docker
+  
+before_install:
+  - docker build -f Dockerfile/Dockerfile -t amarti96/flowable .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push amarti96/flowable:latest
+  
+script:
+  - docker-compose up -d
